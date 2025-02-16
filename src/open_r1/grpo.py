@@ -24,15 +24,15 @@ from datasets import load_dataset
 from transformers import set_seed
 from transformers.trainer_utils import get_last_checkpoint
 
-from open_r1.configs import GRPOConfig
-from open_r1.rewards import (
+from src.open_r1.configs import GRPOConfig
+from src.open_r1.rewards import (
     accuracy_reward,
     format_reward,
     get_cosine_scaled_reward,
     get_repetition_penalty_reward,
     reasoning_steps_reward,
 )
-from open_r1.utils.callbacks import get_callbacks
+from src.open_r1.utils.callbacks import get_callbacks
 from trl import GRPOTrainer, ModelConfig, ScriptArguments, TrlParser, get_peft_config
 
 
