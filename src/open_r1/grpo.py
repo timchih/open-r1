@@ -24,15 +24,19 @@ from datasets import load_dataset
 from transformers import set_seed
 from transformers.trainer_utils import get_last_checkpoint
 
-from src.open_r1.configs import GRPOConfig
-from src.open_r1.rewards import (
+module_path = '/kaggle/working/open-r1/src'
+if module_path not in sys.path:
+    sys.path.append(module_path)
+
+from open_r1.configs import GRPOConfig
+from open_r1.rewards import (
     accuracy_reward,
     format_reward,
     get_cosine_scaled_reward,
     get_repetition_penalty_reward,
     reasoning_steps_reward,
 )
-from src.open_r1.utils.callbacks import get_callbacks
+from open_r1.utils.callbacks import get_callbacks
 from trl import GRPOTrainer, ModelConfig, ScriptArguments, TrlParser, get_peft_config
 
 
